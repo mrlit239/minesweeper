@@ -101,6 +101,139 @@
             text-shadow: 0 0 20px rgba(0, 255, 136, 0.5);
         }
 
+        .theme-selector {
+            margin-bottom: 20px;
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .theme-btn {
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 15px;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 12px;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+        }
+
+        .theme-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.3);
+        }
+
+        .theme-btn.active {
+            background: linear-gradient(45deg, #28a745, #20c997);
+            transform: translateY(-2px);
+        }
+
+        /* Theme-specific button colors */
+        .theme-btn.theme-classic { background: linear-gradient(45deg, #667eea, #764ba2); }
+        .theme-btn.theme-dark { background: linear-gradient(45deg, #2c3e50, #34495e); }
+        .theme-btn.theme-ocean { background: linear-gradient(45deg, #0082c8, #0052a3); }
+        .theme-btn.theme-forest { background: linear-gradient(45deg, #134e5e, #71b280); }
+        .theme-btn.theme-sunset { background: linear-gradient(45deg, #ff9a9e, #fecfef); }
+        .theme-btn.theme-neon { 
+            background: linear-gradient(45deg, #001a0d, #002614); 
+            border: 1px solid #00ff88;
+            color: #00ff88;
+        }
+
+        .difficulty-selector {
+            margin-bottom: 20px;
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .difficulty-btn, .custom-btn {
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+
+        .difficulty-btn:hover, .custom-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.3);
+        }
+
+        .difficulty-btn.active {
+            background: linear-gradient(45deg, #28a745, #20c997);
+        }
+
+        .custom-btn {
+            background: linear-gradient(45deg, #ff6b6b, #ee5a52);
+        }
+
+        body.theme-neon .difficulty-btn, body.theme-neon .custom-btn {
+            background: linear-gradient(45deg, #001a0d, #002614);
+            border: 1px solid #00ff88;
+            color: #00ff88;
+        }
+
+        body.theme-neon .difficulty-btn.active {
+            background: linear-gradient(45deg, #00ff88, #00cc6a);
+            color: #001a0d;
+        }
+
+        .custom-controls {
+            display: none;
+            margin: 20px 0;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 10px;
+            gap: 15px;
+            align-items: center;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .custom-controls.active {
+            display: flex;
+        }
+
+        body.theme-dark .custom-controls {
+            background: #34495e;
+            color: #ecf0f1;
+        }
+
+        body.theme-neon .custom-controls {
+            background: rgba(0, 255, 136, 0.1);
+            border: 1px solid rgba(0, 255, 136, 0.3);
+            color: #00ff88;
+        }
+
+        .custom-input {
+            padding: 8px 12px;
+            border: 2px solid #ddd;
+            border-radius: 5px;
+            font-size: 14px;
+            width: 80px;
+        }
+
+        body.theme-dark .custom-input {
+            background: #2c3e50;
+            color: #ecf0f1;
+            border-color: #555;
+        }
+
+        body.theme-neon .custom-input {
+            background: rgba(0, 255, 136, 0.1);
+            color: #00ff88;
+            border-color: #00ff88;
+        }
+
         .game-info {
             display: flex;
             justify-content: space-between;
@@ -110,6 +243,52 @@
             background: #f8f9fa;
             border-radius: 10px;
             transition: all 0.5s ease;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .info-group {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .game-controls {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .control-btn {
+            background: linear-gradient(45deg, #17a2b8, #138496);
+            color: white;
+            border: none;
+            padding: 8px 12px;
+            border-radius: 15px;
+            cursor: pointer;
+            font-size: 12px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+
+        .control-btn:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 3px 10px rgba(23, 162, 184, 0.3);
+        }
+
+        .hint-btn {
+            background: linear-gradient(45deg, #ffc107, #e0a800);
+            color: #000;
+        }
+
+        .hint-btn:hover {
+            box-shadow: 0 3px 10px rgba(255, 193, 7, 0.3);
+        }
+
+        .auto-flag-btn.active {
+            background: linear-gradient(45deg, #28a745, #20c997);
         }
 
         body.theme-dark .game-info {
@@ -131,6 +310,12 @@
         body.theme-neon .game-info {
             background: rgba(0, 255, 136, 0.1);
             border: 1px solid rgba(0, 255, 136, 0.3);
+        }
+
+        body.theme-neon .control-btn {
+            background: linear-gradient(45deg, #001a0d, #002614);
+            border: 1px solid #00ff88;
+            color: #00ff88;
         }
 
         .info-item {
@@ -183,6 +368,8 @@
             padding: 10px;
             border-radius: 10px;
             box-shadow: inset 0 4px 8px rgba(0,0,0,0.1);
+            max-width: 90vw;
+            overflow: auto;
         }
 
         .cell {
@@ -332,10 +519,46 @@
             animation: explode 0.5s ease-out;
         }
 
+        .cell.hint {
+            animation: hint-pulse 1s ease-in-out 3;
+            border-color: #ffc107 !important;
+            box-shadow: 0 0 10px rgba(255, 193, 7, 0.5) !important;
+        }
+
+        .cell.safe-hint {
+            animation: safe-pulse 1s ease-in-out 3;
+            border-color: #28a745 !important;
+            box-shadow: 0 0 10px rgba(40, 167, 69, 0.5) !important;
+        }
+
+        .cell.auto-flagged {
+            animation: auto-flag 0.5s ease-out;
+        }
+
+        .cell.chord-highlight {
+            background: rgba(255, 255, 0, 0.3) !important;
+        }
+
         @keyframes explode {
             0% { transform: scale(1); }
             50% { transform: scale(1.3); }
             100% { transform: scale(1); }
+        }
+
+        @keyframes hint-pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+
+        @keyframes safe-pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+
+        @keyframes auto-flag {
+            0% { transform: scale(1) rotate(0deg); }
+            50% { transform: scale(1.2) rotate(180deg); }
+            100% { transform: scale(1) rotate(360deg); }
         }
 
         .number-1 { color: #0066cc; }
@@ -373,96 +596,86 @@
             100% { transform: scale(1.05); }
         }
 
-        .theme-selector {
-            margin-bottom: 20px;
-            display: flex;
-            gap: 10px;
-            flex-wrap: wrap;
-            justify-content: center;
-        }
-
-        .theme-btn {
-            background: linear-gradient(45deg, #667eea, #764ba2);
-            color: white;
-            border: none;
-            padding: 8px 16px;
-            border-radius: 15px;
-            cursor: pointer;
-            font-weight: bold;
-            font-size: 12px;
-            transition: all 0.3s ease;
-            text-transform: uppercase;
-        }
-
-        .theme-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.3);
-        }
-
-        .theme-btn.active {
-            background: linear-gradient(45deg, #28a745, #20c997);
-            transform: translateY(-2px);
-        }
-
-        /* Theme-specific button colors */
-        .theme-btn.theme-classic { background: linear-gradient(45deg, #667eea, #764ba2); }
-        .theme-btn.theme-dark { background: linear-gradient(45deg, #2c3e50, #34495e); }
-        .theme-btn.theme-ocean { background: linear-gradient(45deg, #0082c8, #0052a3); }
-        .theme-btn.theme-forest { background: linear-gradient(45deg, #134e5e, #71b280); }
-        .theme-btn.theme-sunset { background: linear-gradient(45deg, #ff9a9e, #fecfef); }
-        .theme-btn.theme-neon { 
-            background: linear-gradient(45deg, #001a0d, #002614); 
-            border: 1px solid #00ff88;
-            color: #00ff88;
-        }
-
-        .difficulty-selector {
-            margin-bottom: 20px;
-            display: flex;
-            gap: 10px;
-            flex-wrap: wrap;
-            justify-content: center;
-        }
-
-        .difficulty-btn {
-            background: linear-gradient(45deg, #667eea, #764ba2);
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            border-radius: 20px;
-            cursor: pointer;
-            font-weight: bold;
-            transition: all 0.3s ease;
-        }
-
-        .difficulty-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.3);
-        }
-
-        .difficulty-btn.active {
-            background: linear-gradient(45deg, #28a745, #20c997);
-        }
-
-        body.theme-neon .difficulty-btn {
-            background: linear-gradient(45deg, #001a0d, #002614);
-            border: 1px solid #00ff88;
-            color: #00ff88;
-        }
-
-        body.theme-neon .difficulty-btn.active {
-            background: linear-gradient(45deg, #00ff88, #00cc6a);
-            color: #001a0d;
-        }
-
         .instructions {
             background: #f8f9fa;
             padding: 15px;
             border-radius: 10px;
             margin-top: 20px;
-            max-width: 500px;
+            max-width: 600px;
             text-align: center;
             color: #666;
+        }
+
+        .stats-panel {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 10px;
+            margin-top: 20px;
+            max-width: 600px;
+            text-align: center;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 15px;
+        }
+
+        .stat-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .stat-value {
+            font-size: 1.5em;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .stat-label {
+            font-size: 0.9em;
+            color: #666;
+        }
+
+        body.theme-dark .instructions,
+        body.theme-dark .stats-panel {
+            background: #34495e;
+            color: #ecf0f1;
+        }
+
+        body.theme-dark .stat-value {
+            color: #ecf0f1;
+        }
+
+        body.theme-dark .stat-label {
+            color: #bdc3c7;
+        }
+
+        body.theme-neon .instructions,
+        body.theme-neon .stats-panel {
+            background: rgba(0, 255, 136, 0.1);
+            border: 1px solid rgba(0, 255, 136, 0.3);
+            color: #00ff88;
+        }
+
+        body.theme-neon .stat-value {
+            color: #00ff88;
+        }
+
+        @media (max-width: 768px) {
+            .cell {
+                width: 25px;
+                height: 25px;
+                font-size: 12px;
+            }
+            
+            .game-info {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .info-group {
+                justify-content: center;
+            }
         }
     </style>
 </head>
@@ -483,17 +696,40 @@
             <button class="difficulty-btn active" onclick="setDifficulty('easy')">Easy (9x9, 10 mines)</button>
             <button class="difficulty-btn" onclick="setDifficulty('medium')">Medium (16x16, 40 mines)</button>
             <button class="difficulty-btn" onclick="setDifficulty('hard')">Hard (16x30, 99 mines)</button>
+            <button class="custom-btn" onclick="toggleCustom()">Custom Size</button>
+        </div>
+
+        <div class="custom-controls" id="customControls">
+            <label>Width: <input type="number" id="customWidth" class="custom-input" value="20" min="5" max="50"></label>
+            <label>Height: <input type="number" id="customHeight" class="custom-input" value="20" min="5" max="50"></label>
+            <label>Mines: <input type="number" id="customMines" class="custom-input" value="60" min="1" max="500"></label>
+            <button class="difficulty-btn" onclick="setCustomDifficulty()">Apply Custom</button>
         </div>
 
         <div class="game-info">
-            <div class="info-item">
-                <span>💣</span>
-                <span class="mines-count" id="minesCount">10</span>
+            <div class="info-group">
+                <div class="info-item">
+                    <span>💣</span>
+                    <span class="mines-count" id="minesCount">10</span>
+                </div>
+                <div class="info-item">
+                    <span>⏱️</span>
+                    <span class="timer" id="timer">000</span>
+                </div>
+                <div class="info-item">
+                    <span>🎯</span>
+                    <span id="accuracy">100%</span>
+                </div>
             </div>
-            <button class="reset-btn" onclick="initGame()">New Game</button>
-            <div class="info-item">
-                <span>⏱️</span>
-                <span class="timer" id="timer">000</span>
+            
+            <div class="game-controls">
+                <button class="control-btn hint-btn" onclick="giveHint()" title="Get a hint (3 uses per game)">
+                    💡 Hint (<span id="hintCount">3</span>)
+                </button>
+                <button class="control-btn auto-flag-btn" id="autoFlagBtn" onclick="toggleAutoFlag()" title="Auto-flag obvious mines">
+                    🤖 Auto-Flag
+                </button>
+                <button class="reset-btn" onclick="initGame()">New Game</button>
             </div>
         </div>
 
@@ -503,9 +739,33 @@
     </div>
 
     <div class="instructions">
-        <strong>How to Play:</strong><br>
-        Left click to reveal cells • Right click to flag/unflag mines<br>
-        Numbers show how many mines are adjacent • Flag all mines to win!
+        <strong>Enhanced Controls:</strong><br>
+        Left click: Reveal • Right click: Flag • Middle click/Ctrl+click: Chord (reveal around flagged)<br>
+        Shift+click: Mark as safe • Double-click: Quick reveal adjacent<br>
+        💡 Hint system • 🤖 Auto-flagging • Real-time accuracy tracking
+    </div>
+
+    <div class="stats-panel" id="statsPanel">
+        <div class="stat-item">
+            <div class="stat-value" id="gamesPlayed">0</div>
+            <div class="stat-label">Games Played</div>
+        </div>
+        <div class="stat-item">
+            <div class="stat-value" id="gamesWon">0</div>
+            <div class="stat-label">Games Won</div>
+        </div>
+        <div class="stat-item">
+            <div class="stat-value" id="winRate">0%</div>
+            <div class="stat-label">Win Rate</div>
+        </div>
+        <div class="stat-item">
+            <div class="stat-value" id="bestTime">--</div>
+            <div class="stat-label">Best Time</div>
+        </div>
+        <div class="stat-item">
+            <div class="stat-value" id="currentStreak">0</div>
+            <div class="stat-label">Win Streak</div>
+        </div>
     </div>
 
     <script>
@@ -516,11 +776,33 @@
         let timerInterval;
         let currentDifficulty = 'easy';
         let currentTheme = 'classic';
+        let hintsUsed = 0;
+        let maxHints = 3;
+        let autoFlagEnabled = false;
+        let totalClicks = 0;
+        let correctClicks = 0;
+        let gameStats = {
+            gamesPlayed: 0,
+            gamesWon: 0,
+            bestTimes: { easy: null, medium: null, hard: null, custom: null },
+            currentStreak: 0
+        };
+        
+        // Try to load stats from localStorage, but don't fail if it doesn't work
+        try {
+            const savedStats = localStorage.getItem('minesweeperStats');
+            if (savedStats) {
+                gameStats = { ...gameStats, ...JSON.parse(savedStats) };
+            }
+        } catch (e) {
+            console.log('Could not load saved stats');
+        }
         
         const difficulties = {
             easy: { rows: 9, cols: 9, mines: 10 },
             medium: { rows: 16, cols: 16, mines: 40 },
-            hard: { rows: 16, cols: 30, mines: 99 }
+            hard: { rows: 16, cols: 30, mines: 99 },
+            custom: { rows: 20, cols: 20, mines: 60 }
         };
 
         function setTheme(theme) {
@@ -536,6 +818,43 @@
             currentDifficulty = difficulty;
             document.querySelectorAll('.difficulty-btn').forEach(btn => btn.classList.remove('active'));
             event.target.classList.add('active');
+            document.getElementById('customControls').classList.remove('active');
+            initGame();
+        }
+
+        function toggleCustom() {
+            const customControls = document.getElementById('customControls');
+            customControls.classList.toggle('active');
+            
+            // Deactivate difficulty buttons
+            document.querySelectorAll('.difficulty-btn').forEach(btn => btn.classList.remove('active'));
+        }
+
+        function setCustomDifficulty() {
+            const width = parseInt(document.getElementById('customWidth').value);
+            const height = parseInt(document.getElementById('customHeight').value);
+            const mines = parseInt(document.getElementById('customMines').value);
+            
+            // Validate inputs
+            if (width < 5 || width > 50 || height < 5 || height > 50) {
+                alert('Width and height must be between 5 and 50');
+                return;
+            }
+            
+            const maxMines = Math.floor((width * height) * 0.8); // Max 80% of cells can be mines
+            
+            if (mines < 1 || mines > maxMines) {
+                alert(`Mines must be between 1 and ${maxMines} for a ${width}x${height} board`);
+                return;
+            }
+            
+            // Update custom difficulty
+            difficulties.custom = { rows: height, cols: width, mines: mines };
+            currentDifficulty = 'custom';
+            
+            // Hide custom controls
+            document.getElementById('customControls').classList.remove('active');
+            
             initGame();
         }
 
@@ -545,11 +864,17 @@
             gameState = 'playing';
             firstClick = true;
             timer = 0;
+            hintsUsed = 0;
+            totalClicks = 0;
+            correctClicks = 0;
             clearInterval(timerInterval);
             updateTimer();
             updateMinesCount();
+            updateAccuracy();
+            updateHintCounter();
             renderBoard();
             updateGameStatus();
+            clearHints();
         }
 
         function createBoard(rows, cols, mineCount) {
@@ -609,6 +934,10 @@
             gameBoard.innerHTML = '';
             gameBoard.style.gridTemplateColumns = `repeat(${config.cols}, 1fr)`;
             
+            // Adjust cell size for very large boards
+            const cellSize = config.cols > 30 ? '20px' : config.cols > 20 ? '25px' : '30px';
+            gameBoard.style.setProperty('--cell-size', cellSize);
+            
             for (let i = 0; i < config.rows; i++) {
                 for (let j = 0; j < config.cols; j++) {
                     const cell = document.createElement('div');
@@ -616,8 +945,21 @@
                     cell.dataset.row = i;
                     cell.dataset.col = j;
                     
+                    // Adjust cell size for large boards
+                    if (config.cols > 30) {
+                        cell.style.width = '20px';
+                        cell.style.height = '20px';
+                        cell.style.fontSize = '10px';
+                    } else if (config.cols > 20) {
+                        cell.style.width = '25px';
+                        cell.style.height = '25px';
+                        cell.style.fontSize = '12px';
+                    }
+                    
                     cell.addEventListener('click', (e) => handleCellClick(e, i, j));
                     cell.addEventListener('contextmenu', (e) => handleRightClick(e, i, j));
+                    cell.addEventListener('mousedown', (e) => handleMouseDown(e, i, j));
+                    cell.addEventListener('dblclick', (e) => handleDoubleClick(e, i, j));
                     
                     updateCellDisplay(cell, i, j);
                     gameBoard.appendChild(cell);
@@ -655,6 +997,20 @@
                 return;
             }
 
+            totalClicks++;
+
+            // Chord click (middle mouse or ctrl+click)
+            if (e.button === 1 || e.ctrlKey) {
+                handleChordClick(row, col);
+                return;
+            }
+
+            // Shift+click for safe marking
+            if (e.shiftKey) {
+                markAsSafe(row, col);
+                return;
+            }
+
             if (firstClick) {
                 const config = difficulties[currentDifficulty];
                 placeMines(config.rows, config.cols, config.mines, row, col);
@@ -662,8 +1018,17 @@
                 startTimer();
             }
 
+            const wasCorrect = !board[row][col].isMine;
+            if (wasCorrect) correctClicks++;
+
             revealCell(row, col);
+            
+            if (autoFlagEnabled && gameState === 'playing') {
+                autoFlagObviousMines();
+            }
+            
             checkGameEnd();
+            updateAccuracy();
             renderBoard();
         }
 
@@ -676,6 +1041,70 @@
             board[row][col].isFlagged = !board[row][col].isFlagged;
             updateMinesCount();
             renderBoard();
+            
+            if (autoFlagEnabled) {
+                autoFlagObviousMines();
+            }
+        }
+
+        function handleMouseDown(e, row, col) {
+            if (e.button === 1) { // Middle mouse button
+                e.preventDefault();
+            }
+        }
+
+        function handleDoubleClick(e, row, col) {
+            e.preventDefault();
+            if (gameState !== 'playing' || !board[row][col].isRevealed || board[row][col].neighborMines === 0) {
+                return;
+            }
+            
+            handleChordClick(row, col);
+        }
+
+        function handleChordClick(row, col) {
+            if (!board[row][col].isRevealed) return;
+            
+            const config = difficulties[currentDifficulty];
+            let flaggedCount = 0;
+            
+            // Count flags around this cell
+            for (let di = -1; di <= 1; di++) {
+                for (let dj = -1; dj <= 1; dj++) {
+                    const ni = row + di;
+                    const nj = col + dj;
+                    if (ni >= 0 && ni < config.rows && nj >= 0 && nj < config.cols) {
+                        if (board[ni][nj].isFlagged) flaggedCount++;
+                    }
+                }
+            }
+            
+            // If flags match the number, reveal all unflagged neighbors
+            if (flaggedCount === board[row][col].neighborMines) {
+                for (let di = -1; di <= 1; di++) {
+                    for (let dj = -1; dj <= 1; dj++) {
+                        const ni = row + di;
+                        const nj = col + dj;
+                        if (ni >= 0 && ni < config.rows && nj >= 0 && nj < config.cols) {
+                            if (!board[ni][nj].isFlagged && !board[ni][nj].isRevealed) {
+                                totalClicks++;
+                                const wasCorrect = !board[ni][nj].isMine;
+                                if (wasCorrect) correctClicks++;
+                                revealCell(ni, nj);
+                            }
+                        }
+                    }
+                }
+                checkGameEnd();
+                updateAccuracy();
+                renderBoard();
+            }
+        }
+
+        function markAsSafe(row, col) {
+            const cell = document.querySelector(`[data-row="${row}"][data-col="${col}"]`);
+            cell.classList.add('safe-hint');
+            setTimeout(() => cell.classList.remove('safe-hint'), 3000);
         }
 
         function revealCell(row, col) {
@@ -716,19 +1145,11 @@
         function checkGameEnd() {
             const config = difficulties[currentDifficulty];
             let revealedCount = 0;
-            let correctFlags = 0;
-            let totalFlags = 0;
 
             for (let i = 0; i < config.rows; i++) {
                 for (let j = 0; j < config.cols; j++) {
                     if (board[i][j].isRevealed && !board[i][j].isMine) {
                         revealedCount++;
-                    }
-                    if (board[i][j].isFlagged) {
-                        totalFlags++;
-                        if (board[i][j].isMine) {
-                            correctFlags++;
-                        }
                     }
                 }
             }
@@ -739,9 +1160,46 @@
             if (revealedCount === nonMineCells) {
                 gameState = 'won';
                 clearInterval(timerInterval);
+                updateGameStats(true);
+            } else if (gameState === 'lost') {
+                updateGameStats(false);
             }
 
             updateGameStatus();
+            updateStats();
+        }
+
+        function updateGameStats(won) {
+            gameStats.gamesPlayed++;
+            if (won) {
+                gameStats.gamesWon++;
+                gameStats.currentStreak++;
+                
+                // Update best time
+                const currentTime = timer;
+                if (!gameStats.bestTimes[currentDifficulty] || currentTime < gameStats.bestTimes[currentDifficulty]) {
+                    gameStats.bestTimes[currentDifficulty] = currentTime;
+                }
+            } else {
+                gameStats.currentStreak = 0;
+            }
+            
+            // Save stats (with error handling)
+            try {
+                localStorage.setItem('minesweeperStats', JSON.stringify(gameStats));
+            } catch (e) {
+                console.log('Could not save stats');
+            }
+        }
+
+        function updateStats() {
+            document.getElementById('gamesPlayed').textContent = gameStats.gamesPlayed;
+            document.getElementById('gamesWon').textContent = gameStats.gamesWon;
+            document.getElementById('winRate').textContent = gameStats.gamesPlayed > 0 ? 
+                Math.round((gameStats.gamesWon / gameStats.gamesPlayed) * 100) + '%' : '0%';
+            document.getElementById('bestTime').textContent = gameStats.bestTimes[currentDifficulty] ? 
+                gameStats.bestTimes[currentDifficulty] + 's' : '--';
+            document.getElementById('currentStreak').textContent = gameStats.currentStreak;
         }
 
         function updateGameStatus() {
@@ -786,8 +1244,128 @@
             document.getElementById('timer').textContent = timer.toString().padStart(3, '0');
         }
 
-        // Initialize the game with default theme
+        function updateAccuracy() {
+            const accuracy = totalClicks > 0 ? Math.round((correctClicks / totalClicks) * 100) : 100;
+            document.getElementById('accuracy').textContent = accuracy + '%';
+        }
+
+        function updateHintCounter() {
+            document.getElementById('hintCount').textContent = maxHints - hintsUsed;
+        }
+
+        function giveHint() {
+            if (hintsUsed >= maxHints || gameState !== 'playing' || firstClick) {
+                return;
+            }
+            
+            hintsUsed++;
+            updateHintCounter();
+            
+            const config = difficulties[currentDifficulty];
+            const safeCells = [];
+            
+            // Find safe cells adjacent to revealed numbers
+            for (let i = 0; i < config.rows; i++) {
+                for (let j = 0; j < config.cols; j++) {
+                    if (board[i][j].isRevealed && board[i][j].neighborMines > 0) {
+                        // Check neighbors
+                        for (let di = -1; di <= 1; di++) {
+                            for (let dj = -1; dj <= 1; dj++) {
+                                const ni = i + di;
+                                const nj = j + dj;
+                                if (ni >= 0 && ni < config.rows && nj >= 0 && nj < config.cols) {
+                                    if (!board[ni][nj].isRevealed && !board[ni][nj].isFlagged && !board[ni][nj].isMine) {
+                                        safeCells.push({row: ni, col: nj});
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            
+            if (safeCells.length > 0) {
+                const randomSafe = safeCells[Math.floor(Math.random() * safeCells.length)];
+                const cell = document.querySelector(`[data-row="${randomSafe.row}"][data-col="${randomSafe.col}"]`);
+                cell.classList.add('hint');
+                setTimeout(() => cell.classList.remove('hint'), 3000);
+            }
+        }
+
+        function toggleAutoFlag() {
+            autoFlagEnabled = !autoFlagEnabled;
+            const btn = document.getElementById('autoFlagBtn');
+            btn.classList.toggle('active', autoFlagEnabled);
+            
+            if (autoFlagEnabled && gameState === 'playing') {
+                autoFlagObviousMines();
+            }
+        }
+
+        function autoFlagObviousMines() {
+            const config = difficulties[currentDifficulty];
+            let flaggedAny = false;
+            
+            for (let i = 0; i < config.rows; i++) {
+                for (let j = 0; j < config.cols; j++) {
+                    if (board[i][j].isRevealed && board[i][j].neighborMines > 0) {
+                        const neighbors = getNeighbors(i, j);
+                        const unrevealedNeighbors = neighbors.filter(n => !board[n.row][n.col].isRevealed);
+                        const flaggedNeighbors = neighbors.filter(n => board[n.row][n.col].isFlagged);
+                        
+                        // If unrevealed neighbors equal remaining mines, flag them all
+                        if (unrevealedNeighbors.length === (board[i][j].neighborMines - flaggedNeighbors.length)) {
+                            unrevealedNeighbors.forEach(n => {
+                                if (!board[n.row][n.col].isFlagged) {
+                                    board[n.row][n.col].isFlagged = true;
+                                    flaggedAny = true;
+                                    
+                                    // Add animation
+                                    setTimeout(() => {
+                                        const cell = document.querySelector(`[data-row="${n.row}"][data-col="${n.col}"]`);
+                                        if (cell) cell.classList.add('auto-flagged');
+                                        setTimeout(() => cell && cell.classList.remove('auto-flagged'), 500);
+                                    }, 100);
+                                }
+                            });
+                        }
+                    }
+                }
+            }
+            
+            if (flaggedAny) {
+                updateMinesCount();
+                renderBoard();
+            }
+        }
+
+        function getNeighbors(row, col) {
+            const config = difficulties[currentDifficulty];
+            const neighbors = [];
+            
+            for (let di = -1; di <= 1; di++) {
+                for (let dj = -1; dj <= 1; dj++) {
+                    if (di === 0 && dj === 0) continue;
+                    const ni = row + di;
+                    const nj = col + dj;
+                    if (ni >= 0 && ni < config.rows && nj >= 0 && nj < config.cols) {
+                        neighbors.push({row: ni, col: nj});
+                    }
+                }
+            }
+            
+            return neighbors;
+        }
+
+        function clearHints() {
+            document.querySelectorAll('.cell').forEach(cell => {
+                cell.classList.remove('hint', 'safe-hint', 'auto-flagged');
+            });
+        }
+
+        // Initialize the game with default theme and stats
         document.body.className = 'theme-classic';
+        updateStats();
         initGame();
     </script>
 </body>
